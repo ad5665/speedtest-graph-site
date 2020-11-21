@@ -1,0 +1,12 @@
+TEST_SERVER_HOST,LATENCY,JITTER,DOWNLOAD,UPLOAD,DATETIME
+speedtest1.idaq.com:8080,16,2,335.31,39.05,20201121051547
+speedtest-net5.rapidswitch.co.uk:8080,17,2,439.24,38.28,20201121051714
+speedtest-net5.rapidswitch.co.uk:8080,16,116,323.07,38.83,20201121052257
+speedtest-net5.rapidswitch.co.uk:8080,16,31,99.40,24.58,20201121054040
+speedtest-net5.rapidswitch.co.uk:8080,16,65,373.65,23.21,20201121060205
+speedtest-net5.rapidswitch.co.uk:8080,17,4,403.87,38.73,20201121063146
+speedtest-net5.rapidswitch.co.uk:8080,17,1,321.32,36.75,20201121070106
+speedtest-net5.rapidswitch.co.uk:8080,16,33,75.54,24.34,20201121073057
+speedtest-net5.rapidswitch.co.uk:8080,16,3,25.50,39.96,20201121080128
+speedtest-net5.rapidswitch.co.uk:8080,16,13,45.77,23.22,20201121083035
+speedtest-net5.rapidswitch.co.uk:8080,16,2,255.84,39.22,20201121085428

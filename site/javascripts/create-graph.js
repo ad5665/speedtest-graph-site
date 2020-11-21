@@ -1,49 +1,29 @@
 /*
  * Parse the data and create a graph with the data.
  */
-function parseData(createGraph) {
-	Papa.parse("../data/tests.csv", {
-		download: true,
-		complete: function(results) {
-			createGraph(results.data);
-			console.log(results.data);
-		}
-	});
-}
+Papa.parse("../data/tests.csv", {
+	skipEmptyLines: true,
+	header: true,
+	download: true,
+	complete: function(results) {
+		console.log(results.data)
+		createGraph(results.data);
+	}
+});
+
 
 function createGraph(data) {
-	var datetime = [];
-	var download = ["Download"];
-	var upload = ["Upload"];
-
-	for (var i = 1; i < data.length; i++) {
-		if (data[i][5] != undefined && data[i][5] !== null) {
-			datetime.push(data[i][5]);
-		} else {
-			 //datetime.push(0);
-		}
-		if (data[i][3] != undefined && data[i][3] !== null) {
-			download.push(data[i][3]);
-		} else {
-			//download.push(0);
-		}
-		if (data[i][4] != undefined && data[i][4] !== null) {
-		        upload.push(data[i][4]);
-		} else {
-		        //download.push(0);
-		}
-	}
-
-	console.log(datetime);
-	console.log(download);
-	console.log(upload)
-	datetime.unshift('datetime');
+	var datetime = ["Datetime", ...data.map(row => row.DATETIME)];
+	var download = ["Download", ...data.map(row => row.DOWNLOAD)];
+	var upload = ["Upload", ...data.map(row => row.UPLOAD)];
+	var latency = ["Latency", ...data.map(row => row.LATENCY)];
+	var jitter = ["Jitter", ...data.map(row => row.JITTER)];
 
 	var chart = c3.generate({
 		data: {
-			x: 'datetime',
+			x: 'Datetime',
 			xFormat: '%Y%m%d%H%M%S',
-			columns: [datetime, download, upload]
+			columns: [datetime, download, upload, latency, jitter]
 		},
 		axis: { 
 			x: {
@@ -68,5 +48,3 @@ function createGraph(data) {
 		},
 	});
 }
-
-parseData(createGraph);
